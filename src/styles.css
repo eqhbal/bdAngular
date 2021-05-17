@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.ng-valid {
+  /* some coloring here */
+  color: green;
+}
+.ng-invalid {
+  /* some coloring here */
+  color: red;
+}
+
+.ng-pristine {
+  color: blue;
+}
+.ng-dirty {
+  color: brown;
+}

@@ -1,1 +1,52 @@
 <div class="jumbotron">Hello {{name}}</div>
+
+<form (ngSubmit)="addContact()" [formGroup]="addContactForm">
+
+  <label for="inputFirstName">First name:</label>
+  <input type="text"
+         name="firstName"
+         id="inputFirstName"
+         class="form-control">
+  <div> Please enter your firstname</div>
+
+  <label for="inputSurname">Surname:</label>
+  <input type="text"
+         name="surname"
+         id="inputSurname"
+         class="form-control">
+  <div>Please enter your surname</div>
+
+  <label for="inputEmail">E-mail address:</label>
+  <input type="text"
+         name="email"
+         formControlName="email"
+         id="inputEmail"
+         class="form-control">
+  <div>Please enter your e-mail adress</div>
+
+  <button class="btn btn-primary"
+          [disabled]="!addContactForm.valid">Add</button>
+
+</form>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>E-mail address</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let contact of contacts">
+    <td>{{contact.firstName}} {{contact.surname}}</td>
+    <td>{{contact.email}}</td>
+    <td>
+      <div>
+        <button class="btn">Edit</button>
+      </div>
+      <div>
+        <button (click)="deleteContact(contact)" class="btn btn-danger">Delete</button>
+      </div>
+    </td>
+  </tr>
+</table>
+
+
